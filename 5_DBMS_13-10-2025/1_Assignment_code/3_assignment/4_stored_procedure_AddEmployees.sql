@@ -8,6 +8,6 @@ begin
 end //
 delimiter ;
 
-call add_emp('sony', 43000, 'IT');
+call add_emp('bhujanga', 63000, 'IT');
 
 select * from employees;
