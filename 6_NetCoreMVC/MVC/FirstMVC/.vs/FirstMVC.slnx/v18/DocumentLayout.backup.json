@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|c:\\users\\dac-user33\\documents\\vin_cdac_pgdac\\cdac_pg_dac_practice\\6_netcoremvc\\mvc\\firstmvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|c:\\users\\dac-user33\\documents\\vin_cdac_pgdac\\cdac_pg_dac_practice\\6_netcoremvc\\mvc\\firstmvc\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|solutionrelative:models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|c:\\users\\dac-user33\\documents\\vin_cdac_pgdac\\cdac_pg_dac_practice\\6_netcoremvc\\mvc\\firstmvc\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|solutionrelative:views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|c:\\users\\dac-user33\\documents\\vin_cdac_pgdac\\cdac_pg_dac_practice\\6_netcoremvc\\mvc\\firstmvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C5B176E-4B8A-36F2-79E5-3FB854754A7A}|FirstMVC.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "Models\\Student.cs",
+              "ToolTip": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Models\\Student.cs",
+              "RelativeToolTip": "Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T03:51:53.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "details.cshtml",
+              "DocumentMoniker": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Views\\Home\\details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\details.cshtml",
+              "ToolTip": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Views\\Home\\details.cshtml",
+              "RelativeToolTip": "Views\\Home\\details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-03T03:47:11.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-03T03:45:34.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\DAC-User33\\Documents\\Vin_CDAC_PGDAC\\CDAC_PG_DAC_Practice\\6_NetCoreMVC\\MVC\\FirstMVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T03:44:05.219Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
