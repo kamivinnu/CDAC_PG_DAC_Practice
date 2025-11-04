@@ -1,0 +1,390 @@
+\documentclass[12pt, a4paper]{article}
+
+% -------------------------------------------------------
+% Packages
+% -------------------------------------------------------
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% -------------------------------------------------------
+% Header & Footer
+% -------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Kamithkar Vinod}
+\rhead{DBT - Assignment 8}
+\cfoot{\thepage}
+
+% -------------------------------------------------------
+% Section Formatting
+% -------------------------------------------------------
+\titleformat{\section}
+  {\large\bfseries}
+  {Problem \thesection:}
+  {0.5em}{}
+
+\titleformat{\subsection}[runin]
+  {\bfseries}
+  {Code:}
+  {0.5em}{}[---]
+
+\titleformat{\subsubsection}[runin]
+  {\bfseries}
+  {Output:}
+  {0.5em}{}[---]
+
+% -------------------------------------------------------
+% SQL Syntax Highlighting
+% -------------------------------------------------------
+\lstdefinelanguage{SQL}{
+  morekeywords={
+    SELECT, FROM, WHERE, GROUP, BY, ORDER, ASC, DESC, JOIN, ON, AS,
+    AND, OR, NOT, IN, IS, NULL, LIKE, HAVING, COUNT, SUM, AVG, MIN, MAX,
+    CREATE, TABLE, INSERT, INTO, VALUES, UPDATE, SET, DELETE, DISTINCT,
+    CASE, WHEN, THEN, ELSE, END, BETWEEN, EXISTS, UNION, ALL, ANY, LEFT,
+    RIGHT, INNER, OUTER, LIMIT, OFFSET, PROCEDURE, BEGIN, FUNCTION, END,
+    RETURNS, RETURN, TRIGGER, BEFORE, AFTER, FOR, EACH, ROW, SIGNAL
+  },
+  sensitive=false,
+  morecomment=[l]{--},
+  morestring=[b]',
+}
+
+\lstset{
+  language=SQL,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{red},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  numbers=none
+}
+
+% -------------------------------------------------------
+% Document Start
+% -------------------------------------------------------
+\begin{document}
+
+% -------------------------------------------------------
+% Title Page
+% -------------------------------------------------------
+\begin{center}
+    \LARGE \textbf{Assignment - 8} \\[0.5cm]
+    \Large \textbf{Database Management Systems (DBMS)} \\[1cm]
+
+    \begin{tabular}{rl}
+        \textbf{Name:} & Kamithkar Vinod \\
+        \textbf{Course:} & PG DAC August 2025 \\
+        \textbf{PRN:} & 250850320040 \\
+        \textbf{Form No:} & 250500480 \\
+        \textbf{Date:} & 30-10-2025 \\
+    \end{tabular}
+\end{center}
+
+\vspace{1cm}
+\hrule
+\vspace{0.5cm}
+
+% -------------------------------------------------------
+% Problems
+% -------------------------------------------------------
+
+% 1
+\section{Before\_Insert}
+\textbf{Task:} Create a trigger to automatically store employee names in uppercase before inserting into the table.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_insert_upper
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    SET NEW.emp_name = UPPER(NEW.emp_name);
+END$$
+DELIMITER ;
+
+INSERT INTO employees(emp_name, salary) VALUES ('john doe', 40000);
+SELECT * FROM employees;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{1.png}
+\end{center}
+
+% 2
+\section{Before\_Insert}
+\textbf{Task:} Create a trigger that ensures no employee salary is less than 10000 when inserting data.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_insert_min_salary
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+ IF NEW.salary < 10000 THEN
+   SET NEW.salary = 10000;
+ END IF;
+END$$
+DELIMITER ;
+
+-- Example to try
+INSERT INTO employees(emp_name, salary) VALUES ('mary', 5000);
+SELECT * FROM employees;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{2.png}
+\end{center}
+
+% 3
+\section{After\_Insert}
+\textbf{Task:} Create a trigger that records every new employee addition in the audit\_log table.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER after_emp_insert_log
+AFTER INSERT ON employees
+FOR EACH ROW
+BEGIN
+ INSERT INTO audit_log(action, emp_id, new_salary)
+ VALUES ('INSERT', NEW.emp_id, NEW.salary);
+END$$
+DELIMITER ;
+
+-- Example to try
+INSERT INTO employees(emp_name, salary) VALUES ('david', 35000);
+SELECT * FROM audit_log;
+
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{3.png}
+\end{center}
+
+% 4
+\section{After\_Insert}
+\textbf{Task:} Create a trigger that displays a welcome message when a new employee is inserted.
+
+\subsection{}
+\begin{lstlisting}
+-- Write your SQL code here
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    % \includegraphics[width=0.8\textwidth]{4.png}
+\end{center}
+
+% 5
+\section{Before\_Update}
+\textbf{Task:} Create a trigger that prevents salary reduction for any employee.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_update_no_decrease
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+ IF NEW.salary < OLD.salary THEN
+   SET NEW.salary = OLD.salary;
+ END IF;
+END$$
+DELIMITER ;
+
+-- Example to try
+UPDATE employees SET salary = 10000 WHERE emp_id = 1;
+SELECT * FROM employees;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{5.png}
+\end{center}
+
+% 6
+\section{Before\_Update}
+\textbf{Task:} Create a trigger that rounds off the updated salary to the nearest integer.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_update_round
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+ SET NEW.salary = ROUND(NEW.salary, 0);
+END$$
+DELIMITER ;
+
+-- Example to try
+UPDATE employees SET salary = 45789.65 WHERE emp_id = 2;
+SELECT * FROM employees;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{6.png}
+\end{center}
+
+% 7
+\section{After\_Update}
+\textbf{Task:} Create a trigger that logs old and new salaries whenever an employee’s salary is updated.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER after_emp_update_log
+AFTER UPDATE ON employees
+FOR EACH ROW
+BEGIN
+ INSERT INTO audit_log(action, emp_id, old_salary, new_salary)
+ VALUES ('UPDATE', NEW.emp_id, OLD.salary, NEW.salary);
+END$$
+DELIMITER ;
+
+-- Example to try
+UPDATE employees SET salary = 48000 WHERE emp_id = 1;
+SELECT * FROM audit_log;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{7.png}
+\end{center}
+
+% 8
+\section{After\_Update}
+\textbf{Task:} Create a trigger that displays a message whenever an employee’s salary is increased.
+
+\subsection{}
+\begin{lstlisting}
+-- Write your SQL code here
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    % \includegraphics[width=0.8\textwidth]{8.png}
+\end{center}
+
+% 9
+\section{Before\_Delete}
+\textbf{Task:} Create a trigger that prevents deletion of a record if the employee name is “CEO”.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_delete_ceo
+BEFORE DELETE ON employees
+FOR EACH ROW
+BEGIN
+ IF OLD.emp_name = 'CEO' THEN
+   SIGNAL SQLSTATE '45000'
+   SET MESSAGE_TEXT = 'Cannot delete CEO record!';
+ END IF;
+END$$
+DELIMITER ;
+
+-- Example to try
+INSERT INTO employees(emp_name, salary) VALUES ('CEO', 90000);
+DELETE FROM employees WHERE emp_name = 'CEO'; -- should raise error
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{9.png}
+\end{center}
+
+% 10
+\section{Before\_Delete}
+\textbf{Task:} Create a trigger that logs any attempt to delete an employee record in the audit\_log table.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER before_emp_delete_log
+BEFORE DELETE ON employees
+FOR EACH ROW
+BEGIN
+ INSERT INTO audit_log(action, emp_id, old_salary)
+ VALUES ('DELETE_ATTEMPT', OLD.emp_id, OLD.salary);
+END$$
+DELIMITER ;
+
+-- Example to try
+DELETE FROM employees WHERE emp_id = 2;
+SELECT * FROM audit_log;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{10.png}
+\end{center}
+
+% 11
+\section{After\_Delete}
+\textbf{Task:} Create a trigger that copies deleted employee records into deleted\_employees.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER after_emp_delete_copy
+AFTER DELETE ON employees
+FOR EACH ROW
+BEGIN
+ INSERT INTO deleted_employees(emp_id, emp_name)
+ VALUES (OLD.emp_id, OLD.emp_name);
+END$$
+DELIMITER ;
+
+-- Example to try
+DELETE FROM employees WHERE emp_id = 3;
+SELECT * FROM deleted_employees;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{11.png}
+\end{center}
+
+% 12
+\section{After\_Delete}
+\textbf{Task:} Create a trigger that logs every deletion in the audit\_log table.
+
+\subsection{}
+\begin{lstlisting}
+DELIMITER $$
+CREATE TRIGGER after_emp_delete_log
+AFTER DELETE ON employees
+FOR EACH ROW
+BEGIN
+ INSERT INTO audit_log(action, emp_id, old_salary)
+ VALUES ('DELETE', OLD.emp_id, OLD.salary);
+END$$
+DELIMITER ;
+
+-- Example to try
+DELETE FROM employees WHERE emp_id = 4;
+SELECT * FROM audit_log;
+\end{lstlisting}
+
+\subsubsection{}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{12.png}
+\end{center}
+
+\end{document}
