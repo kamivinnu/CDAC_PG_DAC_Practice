@@ -10,7 +10,6 @@ namespace FirstMVC.Controllers
         {
             return View();
         }
-
         public IActionResult Details(Student obj)
         {
 

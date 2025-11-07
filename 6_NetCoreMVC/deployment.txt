@@ -1,0 +1,25 @@
+step 1:
+
+To host a project onto IIS:
+    - create one folder wherever you required
+    - desktop ----> new folder (test)
+    - open your project, click on the project name in the solution explorer
+    - then choose publish, then choose folder
+    - click folder - next -- give folder name as test 
+    - and click finish 
+
+-----------------------------------
+
+    -- On right top, click publish 
+    -- close the project 
+    -- check test folder 
+
+--------------------------------------
+
+    -- search IIS Manager 
+    -- Sites - right click -- add website
+    -- project name -- test_local
+    -- give physical path 
+    -- change port number other than 80 ---> 85
+    -- www.testlocal.com 
+    -- click browse
